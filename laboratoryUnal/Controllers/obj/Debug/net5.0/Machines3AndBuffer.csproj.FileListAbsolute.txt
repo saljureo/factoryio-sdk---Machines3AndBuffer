@@ -1,0 +1,19 @@
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Machines3AndBuffer.exe
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Machines3AndBuffer.deps.json
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Machines3AndBuffer.runtimeconfig.json
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Machines3AndBuffer.runtimeconfig.dev.json
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Machines3AndBuffer.dll
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\ref\Machines3AndBuffer.dll
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Machines3AndBuffer.pdb
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Engine IO.dll
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\bin\Debug\net5.0\Engine IO.pdb
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.csprojAssemblyReference.cache
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.AssemblyInfoInputs.cache
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.AssemblyInfo.cs
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.csproj.CoreCompileInputs.cache
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.csproj.CopyComplete
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.dll
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\ref\Machines3AndBuffer.dll
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.pdb
+C:\Users\sanal\factoryio-sdk - Machines3AndBuffer\laboratoryUnal\Controllers\obj\Debug\net5.0\Machines3AndBuffer.genruntimeconfig.cache
