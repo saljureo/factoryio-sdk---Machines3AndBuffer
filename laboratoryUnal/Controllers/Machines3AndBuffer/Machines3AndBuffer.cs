@@ -292,6 +292,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
 
         public Machines3AndBuffer()// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTRUCTOR STARTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         {
+            { 
             //Reader
             newState = "";
             newStateName = "";
@@ -539,7 +540,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
 
             //Trick for printing initial state in console after start up messages
             initialStateMessagePrinted = false;
-
+            }
         } // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONSTRUCTOR ENDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
         public override void Execute(int elapsedMilliseconds) // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EXECUTE STARTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -556,15 +557,17 @@ namespace Controllers.Scenes.MachinesAndBuffer
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TRICK FOR PRINTING INITIAL STATE AFTER START UP MESSAGES END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FAILING TIME AND DISPLAY START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            { 
             displayMc1.Value = float.Parse(string.Format("{0:0.0}", potentiometerMc1.Value));
             displayMc2.Value = float.Parse(string.Format("{0:0.0}", potentiometerMc2.Value));
             displayMc3.Value = float.Parse(string.Format("{0:0.0}", potentiometerMc3.Value));
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FAILING TIME AND DISPLAY END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
             //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BUTTON LIGHTS START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+            { 
             //mc1
-            if (supervisoryControl.IsInActiveEventsLights("s1"))
+            if (supervisoryControl.IsInActiveEventsLights("e1"))
                 mc1StartButtonLight.Value = true;
             else
                 mc1StartButtonLight.Value = false;
@@ -580,7 +583,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
                 mc1FailButtonLight.Value = false;
 
             //mc2
-            if (supervisoryControl.IsInActiveEventsLights("s2"))
+            if (supervisoryControl.IsInActiveEventsLights("e2"))
                 mc2StartButtonLight.Value = true;
             else
                 mc2StartButtonLight.Value = false;
@@ -596,7 +599,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
                 mc2FailButtonLight.Value = false;
 
             //mc3
-            if (supervisoryControl.IsInActiveEventsLights("s3"))
+            if (supervisoryControl.IsInActiveEventsLights("e3"))
                 mc3StartButtonLight.Value = true;
             else
                 mc3StartButtonLight.Value = false;
@@ -611,11 +614,11 @@ namespace Controllers.Scenes.MachinesAndBuffer
             else
                 mc3FailButtonLight.Value = false;
 
-
+            }
             //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BUTTON LIGHTS END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTROLLABLE EVENTS START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+            { 
 
             // Keyboard input:
             try
@@ -654,14 +657,14 @@ namespace Controllers.Scenes.MachinesAndBuffer
             }
 
             //s1
-            if (mc1StartButton.Value == true || (newStateName == "s1" && supervisoryControl.IsInActiveEvents(int.Parse(newState))))
+            if (mc1StartButton.Value == true || (newStateName == "e1" && supervisoryControl.IsInActiveEvents(int.Parse(newState))))
             {
                 if (!timeStartBool)
                     timeStartBool = true;
 
                 if (s1Counter == 0)
                 {
-                    supervisoryApproval = supervisoryControl.On("s1");
+                    supervisoryApproval = supervisoryControl.On("e1");
                     if (supervisoryApproval == true)
                     {
                         eventsMc = Events.s1;
@@ -693,11 +696,11 @@ namespace Controllers.Scenes.MachinesAndBuffer
             }
 
             //s2
-            if (mc2StartButton.Value == true || (newStateName == "s2" && supervisoryControl.IsInActiveEvents(int.Parse(newState))))
+            if (mc2StartButton.Value == true || (newStateName == "e2" && supervisoryControl.IsInActiveEvents(int.Parse(newState))))
             {
                 if (s2Counter == 0)
                 {
-                    supervisoryApproval = supervisoryControl.On("s2");
+                    supervisoryApproval = supervisoryControl.On("e2");
                     if (supervisoryApproval == true)
                     {
                         eventsMc = Events.s2;
@@ -729,11 +732,11 @@ namespace Controllers.Scenes.MachinesAndBuffer
             }
 
             //s3
-            if (mc3StartButton.Value == true || (newStateName == "s3" && supervisoryControl.IsInActiveEvents(int.Parse(newState))))
+            if (mc3StartButton.Value == true || (newStateName == "e3" && supervisoryControl.IsInActiveEvents(int.Parse(newState))))
             {
                 if (s3Counter == 0)
                 {
-                    supervisoryApproval = supervisoryControl.On("s3");
+                    supervisoryApproval = supervisoryControl.On("e3");
                     if (supervisoryApproval == true)
                     {
                         eventsMc = Events.s3;
@@ -763,12 +766,13 @@ namespace Controllers.Scenes.MachinesAndBuffer
             {
                 r3Counter = 0;
             }
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONTROLLABLE EVENTS END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNCONTROLLABLE EVENTS START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+            { 
             if (timeStartBool)
             {
                 failTimeFloatMc1 = Convert.ToSingle(failTimeMc1.ElapsedMilliseconds / 100);
@@ -795,11 +799,13 @@ namespace Controllers.Scenes.MachinesAndBuffer
             {
                 mc3Failed = true;
             }
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UNCONTROLLABLE EVENTS END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FALLING AND RISING TRIGGERS START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            { 
             ftAtEntranceMc1.CLK(sensorEntranceMc1.Value);
             ftAtEntranceMc2.CLK(sensorEntranceMc2.Value);
             ftAtEntranceMc3.CLK(sensorEntranceMc3.Value);
@@ -821,14 +827,14 @@ namespace Controllers.Scenes.MachinesAndBuffer
             rtAtExitMc3.CLK(sensorExitMc3.Value);
             rtAtMc2LoadingConveyorStart.CLK(sensorMc2loadingConveyorStart.Value);
             rtAtMc3LoadingConveyorStart.CLK(sensorMc3loadingConveyorStart.Value);
-
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FALLING AND RISING TRIGGERS END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BAD PIECES CONVEYORS START %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+            { 
             //Mc1 bad piece conveyor
             if (sensorBadPieceFilterConveyorStartMc1.Value == true)
             {
@@ -858,9 +864,11 @@ namespace Controllers.Scenes.MachinesAndBuffer
             {
                 conveyorMc3BadPiece.Value = false;
             }
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BAD PIECES CONVEYORS ENDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BUFFER 1 STARTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            { 
             if (buffer1Status == BufferStatus.EMPTY)
             {
                 if (rtAtExitMc1.Q == true && mc1Failed == false)
@@ -912,9 +920,11 @@ namespace Controllers.Scenes.MachinesAndBuffer
                     buffer1Status = BufferStatus.TWO;
                 }
             }
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BUFFER 1 ENDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BUFFER 2 STARTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+            { 
             if (buffer2Status == BufferStatus.EMPTY)
             {
                 if (rtAtExitMc2.Q == true && mc2Failed == false)
@@ -966,6 +976,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
                     buffer2Status = BufferStatus.TWO;
                 }
             }
+            }
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BUFFER 2 ENDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -973,7 +984,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
             // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MACHINE CENTER STARTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
             // %%%%%%%%%%%%%%%%%%%% MC1 STARTS %%%%%%%%%%%%%%%%%%%%
-
+            { 
             // %%%% MC1 BAD PIECES FILTER STARTS %%%%%
             gripperMc1.StateTransition();
 
@@ -1103,14 +1114,14 @@ namespace Controllers.Scenes.MachinesAndBuffer
                     {
                         mc1Reset.Value = false;
                         mc1Status = McStatus.IDLE;
-                        supervisoryApproval = supervisoryControl.On("f1");
+                        supervisoryApproval = supervisoryControl.On("t1");
                         //mc1Failed = true; //will fail next time
                     }
                     else if (rtAtExitMc1.Q == true && mc1Failed == true)
                     {
                         mc1Reset.Value = false;
                         mc1Status = McStatus.DOWN;
-                        supervisoryApproval = supervisoryControl.On("b1");
+                        supervisoryApproval = supervisoryControl.On("f1");
                     }
                 }
 
@@ -1132,13 +1143,13 @@ namespace Controllers.Scenes.MachinesAndBuffer
                 }
             }
             // %%%% MC1 DOWN ENDS %%%%%
-
+            }
             // %%%%%%%%%%%%%%%%%%%% MC1 ENDS %%%%%%%%%%%%%%%%%%%%
 
 
 
             // %%%%%%%%%%%%%%%%%%%% MC2 STARTS %%%%%%%%%%%%%%%%%%%%
-
+            { 
             //%%%% MC2 BAD PIECES FILTER STARTS %%%%%
             gripperMc2.StateTransition();
 
@@ -1256,7 +1267,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
                     conveyorBuffer2.Value = true;
                     eventsMc = Events.f2;
                     mc2Status = McStatus.IDLE;
-                    supervisoryApproval = supervisoryControl.On("f2");
+                    supervisoryApproval = supervisoryControl.On("t2");
                     //mc2Failed = true; //will fail next time
                 }
                 else if (rtAtExitMc2.Q == true && mc2Failed == true)
@@ -1264,7 +1275,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
                     mc2Reset.Value = false;
                     eventsMc = Events.b2;
                     mc2Status = McStatus.DOWN;
-                    supervisoryApproval = supervisoryControl.On("b2");
+                    supervisoryApproval = supervisoryControl.On("f2");
                 }
             }
             //%%% MC2 WORKING ENDS %%%%
@@ -1284,11 +1295,11 @@ namespace Controllers.Scenes.MachinesAndBuffer
             }
             //%%% MC2 DOWN ENDS %%%%
 
-
+            }
             // %%%%%%%%%%%%%%%%%%%% MC2 ENDS %%%%%%%%%%%%%%%%%%%%
 
             // %%%%%%%%%%%%%%%%%%%% MC3 STARTS %%%%%%%%%%%%%%%%%%%%
-
+            { 
             //%%%% MC3 BAD PIECES FILTER STARTS %%%%%
             gripperMc3.StateTransition();
 
@@ -1400,14 +1411,14 @@ namespace Controllers.Scenes.MachinesAndBuffer
                     conveyorFinishedPiece.Value = true;
                     eventsMc = Events.f3;
                     mc3Status = McStatus.IDLE;
-                    supervisoryApproval = supervisoryControl.On("f3");
+                    supervisoryApproval = supervisoryControl.On("t3");
                     //mc2Failed = true; //will fail next time
                 }
                 else if (rtAtExitMc3.Q == true && mc3Failed == true)
                 {
                     eventsMc = Events.b3;
                     mc3Status = McStatus.DOWN;
-                    supervisoryApproval = supervisoryControl.On("b3");
+                    supervisoryApproval = supervisoryControl.On("f3");
                 }
             }
             //%%% MC3 WORKING ENDS %%%%
@@ -1427,7 +1438,7 @@ namespace Controllers.Scenes.MachinesAndBuffer
             }
             //%%% MC3 DOWN ENDS %%%%
 
-
+            }
             // %%%%%%%%%%%%%%%%%%%% MC3 ENDS %%%%%%%%%%%%%%%%%%%%
 
             //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MACHINE CENTER ENDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
