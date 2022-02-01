@@ -45,15 +45,15 @@ def xml2sdk(XmlFileName):
         stateNames.append(nombre)
     
         
-    factoryIoFileName = ''    
-    for letter in XmlFileName:
-        if letter == "/":
-            factoryIoFileName = ''
-        elif letter == ".":
-            break
-        else:
-            factoryIoFileName = factoryIoFileName + letter
-    csFileName = factoryIoFileName + 'Supervisor.cs'
+    #factoryIoFileName = ''    
+    #for letter in XmlFileName:
+    #    if letter == "/":
+    #        factoryIoFileName = ''
+    #    elif letter == ".":
+    #        break
+    #    else:
+    #        factoryIoFileName = factoryIoFileName + letter
+    csFileName = 'Machines3AndBufferSupervisor.cs'
     try:
         f = open(csFileName, "x")
     except:
