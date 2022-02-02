@@ -53,7 +53,8 @@ def xml2sdk(XmlFileName):
     #        break
     #    else:
     #        factoryIoFileName = factoryIoFileName + letter
-    csFileName = 'Machines3AndBufferSupervisor.cs'
+    factoryIoFileName = 'Machines3AndBuffer'
+    csFileName = factoryIoFileName + 'Supervisor.cs'
     try:
         f = open(csFileName, "x")
     except:
